@@ -142,3 +142,70 @@ body {
         box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
     }
 }
+
+/* ============================================= */
+/* ===== ESTILO DA CAIXA DE URGÊNCIA (V2) ===== */
+/* ============================================= */
+
+.urgency-box {
+    background-color: #ffc; /* Um amarelo pálido, tipo "alerta" */
+    color: #111; /* Texto bem escuro para contraste */
+    border: 2px solid #e6c300; /* Borda amarela-mostarda */
+    border-radius: 10px; /* Para combinar com os botões */
+    padding: 15px 20px;
+    margin-bottom: 30px; /* Espaço para separar dos botões */
+    
+    font-size: 1.1rem; /* Tamanho da fonte */
+    font-weight: 700; /* Negrito */
+    
+    /* Sombra sutil para destacar do fundo escuro */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    /* Alinhamento */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* ===== ANIMAÇÃO NOVA PARA A CAIXA INTEIRA ===== */
+    /* Aplica a animação 'pulse-box' */
+    animation: pulse-box 2.5s infinite ease-in-out;
+}
+
+.urgency-box .icon {
+    margin-right: 10px; /* Espaço entre o ícone e o texto */
+    display: inline-block;
+    font-size: 1.3rem; /* Ícone um pouco maior */
+    
+    /* Animação para o ícone (continua) */
+    animation: shake-icon 1.5s infinite linear;
+}
+
+/* Animação para o ícone de fogo/alerta (a tremer) */
+@keyframes shake-icon {
+    0% { transform: scale(1) rotate(0deg); }
+    5% { transform: scale(1.1) rotate(-5deg); }
+    10% { transform: scale(1.1) rotate(5deg); }
+    15% { transform: scale(1.1) rotate(-5deg); }
+    20% { transform: scale(1.1) rotate(5deg); }
+    25% { transform: scale(1) rotate(0deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ===== ANIMAÇÃO NOVA PARA A CAIXA (a pulsar) ===== */
+@keyframes pulse-box {
+    0% {
+        transform: scale(1);
+        /* Sombra normal, cor da borda */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(230, 195, 0, 0.7);
+    }
+    50% {
+        transform: scale(1.03); /* Aumenta ligeiramente a caixa */
+        /* A sombra expande-se com a cor da borda, dando um "brilho" */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(230, 195, 0, 0);
+    }
+    100% {
+        transform: scale(1);
+        /* Volta ao normal */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(230, 195, 0, 0.7);
+    }
+}
