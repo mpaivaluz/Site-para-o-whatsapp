@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Contagem de Cliques</title>
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Dashboard de Cliques</h1>
+        <p>Estes dados são atualizados em tempo real.</p>
+
+        <div class="stats-grid">
+            <!-- Card do WhatsApp -->
+            <div class="stat-card whatsapp-card">
+                <h2>Cliques no WhatsApp</h2>
+                <div class="stat-number" id="dash-count-whatsapp">
+                    ...
+                </div>
+            </div>
+
+            <!-- Card do Telegram -->
+            <div class="stat-card telegram-card">
+                <h2>Cliques no Telegram</h2>
+                <div class="stat-number" id="dash-count-telegram">
+                    ...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nosso script do dashboard, como módulo -->
+    <script type="module" src="dashboard-app.js"></script>
+
+</body>
+</html>
