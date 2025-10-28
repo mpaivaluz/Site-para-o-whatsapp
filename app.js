@@ -6,7 +6,7 @@ import { getAnalytics, logEvent } from "https://www.gstatic.com/firebasejs/9.15.
 // =================================================================
 // ===== IMPORTANTE: COLOQUE SEU LINK DO WHATSAPP AQUI DENTRO =====
 // =================================================================
-const SEU_LINK_DO_WHATSAPP = "https://SEU-LINK-DO-WHATSAPP-VAI-AQUI";
+const SEU_LINK_DO_WHATSAPP = "https://chat.whatsapp.com/G0mO8bBMFbfCV9zt9i7omA?mode=wwt";
 // =================================================================
 
 // 2. Cole seu firebaseConfig aqui (o mesmo de antes)
