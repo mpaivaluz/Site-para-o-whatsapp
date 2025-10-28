@@ -61,3 +61,6 @@ onValue(tgCountRef, (snapshot) => {
     const count = snapshot.val() || 0; // Se for null, mostra 0
     tgCountElement.innerText = count;
 });
+
+const pageViewRef = ref(database, 'views/homepage');
+incrementClick(pageViewRef);
