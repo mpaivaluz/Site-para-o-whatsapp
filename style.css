@@ -1,0 +1,144 @@
+/* Configuração geral da página */
+body {
+    background-color: #121212; /* Fundo escuro para combinar com a imagem */
+    font-family: 'Inter', sans-serif; /* Fonte moderna e legível */
+    color: white;
+    
+    /* Centraliza tudo na tela (vertical e horizontal) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Evita barras de rolagem caso a animação exceda o tamanho */
+}
+
+/* O contêiner principal */
+.container {
+    text-align: center;
+    padding: 20px;
+    max-width: 350px; /* Limita a largura para melhor visualização em mobile */
+    width: 100%;
+}
+
+/* Estilo para o contêiner da logo */
+.logo-container {
+    margin-bottom: 40px; /* Espaço entre a logo e a seta */
+}
+
+/* Estilo da imagem da logo */
+.main-logo {
+    max-width: 180px; /* Tamanho máximo para a logo */
+    height: auto;
+}
+
+/* Estilo da imagem da seta */
+.arrow-img {
+    width: 120px; /* Tamanho da seta */
+    height: auto;
+    margin-bottom: 30px; /* Espaço entre a seta e os botões */
+    /* Adiciona a classe pulsating-arrow para animar a seta */
+}
+
+/* Contêiner que segura os botões */
+.button-container {
+    display: flex;
+    flex-direction: column; /* Coloca um botão abaixo do outro */
+    gap: 20px; /* Espaço entre os botões */
+}
+
+/* Estilo base para AMBOS os botões */
+.btn {
+    display: block;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 10px; /* Bordas arredondadas */
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none; /* Remove o sublinhado do link */
+    text-transform: uppercase; /* Deixa o texto em maiúsculas */
+    cursor: pointer;
+    
+    /* Efeito suave ao passar o mouse */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
+
+    /* APLICA A ANIMAÇÃO DE PULSAÇÃO (PARA OS BOTÕES) */
+    animation: pulse-button 2s infinite ease-in-out;
+}
+
+/* Efeito de "levantar" ao passar o mouse */
+.btn:hover {
+    transform: translateY(-3px) scale(1.05); /* Um pouco mais de zoom no hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: none; /* Pausa a pulsação do botão ao passar o mouse */
+}
+
+/* Cor específica do botão VERDE */
+.btn.whatsapp {
+    background-color: #25D366; /* Cor oficial do WhatsApp */
+}
+
+/* Cor específica do botão AZUL */
+.btn.telegram {
+    background-color: #0088cc; /* Cor oficial do Telegram */
+}
+
+/* ----- ANIMAÇÕES ----- */
+
+/* Animação de pulsação para a SETA */
+.pulsating-arrow {
+    animation: pulse-arrow 1.5s infinite ease-in-out; /* Velocidade ligeiramente diferente */
+}
+
+@keyframes pulse-arrow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1); /* Seta aumenta um pouco mais */
+        opacity: 0.8; /* E fica um pouco transparente */
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* Animação de pulsação para os BOTÕES */
+@keyframes pulse-button {
+    0% {
+        transform: scale(1); /* Tamanho normal no início */
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra inicial (invisível) */
+    }
+    50% {
+        transform: scale(1.03); /* Leve aumento de tamanho no meio */
+        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); /* Sombra expande e fica transparente */
+    }
+    100% {
+        transform: scale(1); /* Volta ao tamanho normal no final */
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra volta ao estado inicial */
+    }
+}
+
+/* Ajuste a sombra da pulsação para o botão do Telegram (animação separada) */
+.btn.telegram {
+    animation: pulse-button-telegram 2s infinite ease-in-out; /* Animação separada para o Telegram */
+}
+
+@keyframes pulse-button-telegram {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7); /* Sombra com a cor do Telegram */
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
+    }
+}
