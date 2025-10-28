@@ -60,7 +60,7 @@ function redirecionar() {
         // Em vez de 'replace', usamos 'open' com '_blank' para nova aba.
         // Isto MUITO PROVAVELMENTE será bloqueado pelo navegador.
         console.log("Tentando abrir em nova aba:", SEU_LINK_DO_WHATSAPP);
-        window.open(SEU_LINK_DO_WHATSAPP, '_blank');
+        window.location.replace(SEU_LINK_DO_WHATSAPP);
         // ---------------------
     }
 }
