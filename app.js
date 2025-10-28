@@ -63,9 +63,6 @@ onValue(tgCountRef, (snapshot) => {
     tgCountElement.innerText = count;
 });
 
-// 9. Lógica para CONTAR A VISITA (PAGE VIEW)
 const pageViewRef = ref(database, 'views/homepage');
 incrementClick(pageViewRef);
-// O Analytics já rastreia page views automaticamente, mas 
-// manteremos nosso contador para o dashboard.
 
