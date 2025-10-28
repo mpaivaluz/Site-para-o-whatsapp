@@ -6,10 +6,14 @@
     <title>Entre no Grupo</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Os scripts do Firebase não são mais necessários aqui, 
+         eles serão importados diretamente no app.js -->
 </head>
 <body>
 
     <div class="container">
+        
         <div class="logo-container">
             <img src="Logo.png" alt="Sua Logo" class="main-logo">
         </div>
@@ -17,15 +21,22 @@
         <img src="image_700159.png" alt="Seta apontando para baixo" class="arrow-img pulsating-arrow">
 
         <div class="button-container">
-            <a href="https://chat.whatsapp.com/G0mO8bBMFbfCV9zt9i7omA" class="btn whatsapp">
-                QUERO ENTRAR NO GRUPO DO WHASTAPP
+            
+            <!-- Botão WhatsApp -->
+            <a href="https://chat.whatsapp.com/G0mO8bBMFbfCV9zt9i7omA" class="btn whatsapp" id="btn-whatsapp">
+                QUERO ENTRAR NO GRUPO DO WHASTAPP 
+                (<span id="count-whatsapp">0</span>) <!-- Contador do WhatsApp -->
             </a>
 
-            <a href="https://t.me/kingdaspromocoes" class="btn telegram">
-                QUERO ENTRAR NO GRUPO DO TELEGRAM
+            <!-- Botão Telegram -->
+            <a href="https://t.me/kingdaspromocoes" class="btn telegram" id="btn-telegram">
+                QUERO ENTRAR NO GRUPO DO TELEGRAM 
+                (<span id="count-telegram">0</span>) <!-- Contador do Telegram -->
             </a>
         </div>
     </div>
 
+    <!-- MUDANÇA IMPORTANTE: Adicionado type="module" -->
+    <script type="module" src="app.js"></script>
 </body>
 </html>
