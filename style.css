@@ -1,211 +1,257 @@
-/* Configuração geral da página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
 body {
-    background-color: #121212; /* Fundo escuro para combinar com a imagem */
-    font-family: 'Inter', sans-serif; /* Fonte moderna e legível */
-    color: white;
-    
-    /* Centraliza tudo na tela (vertical e horizontal) */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    overflow: hidden; /* Evita barras de rolagem caso a animação exceda o tamanho */
+  background-color: #0d0d0d;
+  color: #f5f5f5;
 }
 
-/* O contêiner principal */
-.container {
-    text-align: center;
-    padding: 20px;
-    max-width: 350px; /* Limita a largura para melhor visualização em mobile */
-    width: 100%;
+/* --- Header --- */
+header {
+  text-align: center;
+  padding: 80px 20px;
+  background: radial-gradient(circle at center, #001a1a 0%, #000 100%);
 }
 
-/* Estilo para o contêiner da logo */
-.logo-container {
-    margin-bottom: 40px; /* Espaço entre a logo e a seta */
+.logo {
+  width: 140px;
+  margin-bottom: 20px;
 }
 
-/* Estilo da imagem da logo */
-.main-logo {
-    max-width: 180px; /* Tamanho máximo para a logo */
-    height: auto;
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
 }
 
-/* Estilo da imagem da seta */
-.arrow-img {
-    width: 120px; /* Tamanho da seta */
-    height: auto;
-    margin-bottom: 30px; /* Espaço entre a seta e os botões */
-    /* Adiciona a classe pulsating-arrow para animar a seta */
+header p {
+  font-size: 1.1rem;
+  margin: 15px 0 30px;
+  color: #b3e5f0;
 }
 
-/* Contêiner que segura os botões */
-.button-container {
-    display: flex;
-    flex-direction: column; /* Coloca um botão abaixo do outro */
-    gap: 20px; /* Espaço entre os botões */
-}
-
-/* Estilo base para AMBOS os botões */
 .btn {
-    display: block;
-    padding: 18px 30px;
-    border: none;
-    border-radius: 10px; /* Bordas arredondadas */
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-    text-decoration: none; /* Remove o sublinhado do link */
-    text-transform: uppercase; /* Deixa o texto em maiúsculas */
-    cursor: pointer;
-    
-    /* Efeito suave ao passar o mouse */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease;
-
-    /* APLICA A ANIMAÇÃO DE PULSAÇÃO (PARA OS BOTÕES) */
-    animation: pulse-button 2s infinite ease-in-out;
+  background-color: #00eaff;
+  color: #000;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
-/* Efeito de "levantar" ao passar o mouse */
 .btn:hover {
-    transform: translateY(-3px) scale(1.05); /* Um pouco mais de zoom no hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    animation: none; /* Pausa a pulsação do botão ao passar o mouse */
+  background-color: #00bcd4;
+  transform: scale(1.05);
 }
 
-/* Cor específica do botão VERDE */
-.btn.whatsapp {
-    background-color: #25D366; /* Cor oficial do WhatsApp */
+/* --- Seções --- */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* Cor específica do botão AZUL */
-.btn.telegram {
-    background-color: #0088cc; /* Cor oficial do Telegram */
+.title {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #00eaff;
+  font-size: 2rem;
+  position: relative;
 }
 
-/* ----- ANIMAÇÕES ----- */
-
-/* Animação de pulsação para a SETA */
-.pulsating-arrow {
-    animation: pulse-arrow 1.5s infinite ease-in-out; /* Velocidade ligeiramente diferente */
+.title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #00eaff;
+  margin: 10px auto;
+  border-radius: 2px;
 }
 
-@keyframes pulse-arrow {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1); /* Seta aumenta um pouco mais */
-        opacity: 0.8; /* E fica um pouco transparente */
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
+/* --- Grid de Promoções --- */
+.grid.promocoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 🔥 2 a 3 por linha */
+  gap: 25px;
+  justify-items: center;
+}
+
+/* --- Card das Promoções --- */
+.card {
+  background: #0f1c1c;
+  border-radius: 14px;
+  border: 1px solid rgba(0,234,255,0.25);
+  box-shadow: 0 0 15px rgba(0,234,255,0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 360px; /* 🔥 define o limite do card */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,234,255,0.3);
+}
+
+/* --- Imagem da Promoção --- */
+.card img {
+  width: 100%;
+  height: auto;
+  max-height: 220px; /* 🔥 altura ideal para prints legíveis sem cortar */
+  object-fit: contain; /* mantém o print inteiro */
+  background-color: #000; /* fundo neutro se imagem for menor */
+  border-bottom: 2px solid rgba(0,234,255,0.25);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+/* --- Texto do Card --- */
+.card-content {
+  padding: 18px;
+}
+
+.card-content h3 {
+  color: #00eaff;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  text-shadow: 0 0 6px rgba(0,234,255,0.3);
+}
+
+.card-content p {
+  font-size: 0.95rem;
+  color: #b3e5f0;
+  line-height: 1.4;
 }
 
 
-/* Animação de pulsação para os BOTÕES */
-@keyframes pulse-button {
-    0% {
-        transform: scale(1); /* Tamanho normal no início */
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra inicial (invisível) */
-    }
-    50% {
-        transform: scale(1.03); /* Leve aumento de tamanho no meio */
-        box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); /* Sombra expande e fica transparente */
-    }
-    100% {
-        transform: scale(1); /* Volta ao tamanho normal no final */
-        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); /* Sombra volta ao estado inicial */
-    }
+/* --- Grid dos Depoimentos --- */
+.grid.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 🔥 3 colunas automáticas */
+  gap: 25px;
+  justify-items: center;
 }
 
-/* Ajuste a sombra da pulsação para o botão do Telegram (animação separada) */
-.btn.telegram {
-    animation: pulse-button-telegram 2s infinite ease-in-out; /* Animação separada para o Telegram */
+/* --- Cada depoimento individual --- */
+.depoimentos {
+  background: #0f1c1c;
+  border: 1px solid rgba(0,234,255,0.25);
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  font-style: italic;
+  color: #e0f7fa;
+  box-shadow: 0 0 10px rgba(0,234,255,0.1);
+  width: 100%;
+  max-width: 330px; /* 🔥 define largura máxima para manter simetria */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-@keyframes pulse-button-telegram {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7); /* Sombra com a cor do Telegram */
-    }
-    50% {
-        transform: scale(1.03);
-        box-shadow: 0 0 0 10px rgba(0, 136, 204, 0);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 136, 204, 0.7);
-    }
+.depoimentos:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(0,234,255,0.3);
 }
 
-/* ============================================= */
-/* ===== ESTILO DA CAIXA DE URGÊNCIA (V2) ===== */
-/* ============================================= */
-
-.urgency-box {
-    background-color: #ffc; /* Um amarelo pálido, tipo "alerta" */
-    color: #111; /* Texto bem escuro para contraste */
-    border: 2px solid #e6c300; /* Borda amarela-mostarda */
-    border-radius: 10px; /* Para combinar com os botões */
-    padding: 15px 20px;
-    margin-bottom: 30px; /* Espaço para separar dos botões */
-    
-    font-size: 1.1rem; /* Tamanho da fonte */
-    font-weight: 700; /* Negrito */
-    
-    /* Sombra sutil para destacar do fundo escuro */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    
-    /* Alinhamento */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    /* ===== ANIMAÇÃO NOVA PARA A CAIXA INTEIRA ===== */
-    /* Aplica a animação 'pulse-box' */
-    animation: pulse-box 2.5s infinite ease-in-out;
+.depoimentos img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #00eaff;
+  box-shadow: 0 0 10px rgba(0,234,255,0.2);
+  margin-bottom: 10px;
 }
 
-.urgency-box .icon {
-    margin-right: 10px; /* Espaço entre o ícone e o texto */
+.depoimentos p {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #b3e5f0;
+}
+
+.depoimentos strong {
+  display: block;
+  margin-top: 8px;
+  color: #00eaff;
+  font-size: 0.95rem;
+}
+
+.cta {
+  background: linear-gradient(135deg, #001f1f, #003333);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+  box-shadow: inset 0 0 50px rgba(0,234,255,0.2);
+  margin-top: 60px; /* 🔥 adiciona espaçamento entre a seção anterior */
+  border-top: 1px solid rgba(0,234,255,0.2);
+  border-bottom: 1px solid rgba(0,234,255,0.2);
+}
+
+.cta h2 {
+  font-size: 1.9rem;
+  margin-bottom: 20px;
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+.cta p {
+  font-size: 1.05rem;
+  margin-bottom: 25px;
+  color: #b3e5f0;
+}
+
+.cta .btn {
+  background-color: #00eaff;
+  color: #000;
+  padding: 16px 34px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(0,234,255,0.5);
+  transition: all 0.3s ease;
+}
+
+.cta .btn:hover {
+  background-color: #00bcd4;
+  box-shadow: 0 0 20px rgba(0,234,255,0.8);
+  transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+  background: #000;
+  color: #b3e5f0;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0,234,255,0.2);
+}
+
+/* --- Responsivo --- */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .btn {
     display: inline-block;
-    font-size: 1.3rem; /* Ícone um pouco maior */
-    
-    /* Animação para o ícone (continua) */
-    animation: shake-icon 1.5s infinite linear;
-}
+    width: 90%;
+  }
 
-/* Animação para o ícone de fogo/alerta (a tremer) */
-@keyframes shake-icon {
-    0% { transform: scale(1) rotate(0deg); }
-    5% { transform: scale(1.1) rotate(-5deg); }
-    10% { transform: scale(1.1) rotate(5deg); }
-    15% { transform: scale(1.1) rotate(-5deg); }
-    20% { transform: scale(1.1) rotate(5deg); }
-    25% { transform: scale(1) rotate(0deg); }
-    100% { transform: scale(1) rotate(0deg); }
-}
-
-/* ===== ANIMAÇÃO NOVA PARA A CAIXA (a pulsar) ===== */
-@keyframes pulse-box {
-    0% {
-        transform: scale(1);
-        /* Sombra normal, cor da borda */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(230, 195, 0, 0.7);
-    }
-    50% {
-        transform: scale(1.03); /* Aumenta ligeiramente a caixa */
-        /* A sombra expande-se com a cor da borda, dando um "brilho" */
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 0 0 8px rgba(230, 195, 0, 0);
-    }
-    100% {
-        transform: scale(1);
-        /* Volta ao normal */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1), 0 0 0 0 rgba(230, 195, 0, 0.7);
-    }
+  .logo {
+    width: 120px;
+  }
+  .depoimentos img {
+    width: 100%;
+    max-width: 300px;
+  }
+  .card img {
+    height: auto;
+    max-height: 320px; /* ajusta dinamicamente em telas pequenas */
+  }  
 }
